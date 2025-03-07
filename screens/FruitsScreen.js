@@ -2,7 +2,7 @@
 import 'react-native-gesture-handler';
 import React from 'react';
 import { Text, View, Image, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
-import { styles } from '../navigation/DrawerNavigator';
+import { styles } from '../navigation/TabNavigator';
 
 export default function FruitsScreen() {
     const fruits = [
@@ -16,7 +16,19 @@ export default function FruitsScreen() {
   
     return (
       <ScrollView style={styles.container}>
-       
+        <Text style={styles.title}>Fresh, handpicked, extra juicy fruits</Text>
+        {fruits.map((item, index) => {
+            <View key={index} style={styles.itemContainer}>
+                <Image source={{uri: item.image}} style={styles.image} />
+                <View style={styles.details}>
+                    <Text style={styles.name}>{item.name}</Text>
+                    <Text style={styles.price}>{item.price}</Text>
+                    <TouchableOpacity style={styles.button} onPress={() => alert(`${item.name} added to cart`)}>
+                        <Text style={styles.buttonText}>Add to cart</Text>
+                    </TouchableOpacity>
+                </View>
+            </View>
+        })}              
       </ScrollView>
     );
   }
