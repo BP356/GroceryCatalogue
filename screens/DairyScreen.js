@@ -17,7 +17,7 @@ export default function DairyScreen() {
     return (
       <ScrollView contentContainerStyle={styles.container}>
         <Text style={styles.title}>Fresh diary products for you</Text>
-        {items.map((item, index) => {
+        {items.map((item, index) => (
             <View key={index} style={styles.itemContainer}>
                 <Image source={{uri: item.image}} style={styles.image} />
                 <View style={styles.details}>
@@ -28,7 +28,7 @@ export default function DairyScreen() {
                     </TouchableOpacity>
                 </View>
             </View>
-        })}       
+        ))}       
       </ScrollView>
     );
   }

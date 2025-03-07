@@ -17,7 +17,7 @@ export default function VegetablesScreen() {
     return (
       <ScrollView style={styles.container}>
         <Text style={styles.title}>Fresh vegetables directly from farmers land</Text>
-        {vegetables.map((item, index) => {
+        {vegetables.map((item, index) => (
             <View key={index} style={styles.itemContainer}>
                 <Image source={{uri: item.image}} style={styles.image} />
                 <View style={styles.details}>
@@ -28,7 +28,7 @@ export default function VegetablesScreen() {
                     </TouchableOpacity>
                 </View>
             </View>
-        })}
+        ))}
       </ScrollView>
     );
   }
